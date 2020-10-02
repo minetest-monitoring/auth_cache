@@ -4,7 +4,7 @@ local hit_count, miss_count
 
 if has_monitoring_mod then
   hit_count = monitoring.counter("auth_cache_hit", "cache hits")
-  miss_count = monitoring.counter("auth_cache_cache_miss", "cache misses")
+  miss_count = monitoring.counter("auth_cache_miss", "cache misses")
 end
 
 local cache = {}
