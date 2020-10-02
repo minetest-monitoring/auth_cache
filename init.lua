@@ -37,9 +37,9 @@ function minetest.builtin_auth_handler.set_password(name, password)
 end
 
 local old_set_privileges = minetest.builtin_auth_handler.set_privileges
-function minetest.builtin_auth_handler.set_privileges(name, privs)
-  cache[name].privs = privs
-  return old_set_privileges(name, privs)
+function minetest.builtin_auth_handler.set_privileges(name, privileges)
+  cache[name].privileges = privileges
+  return old_set_privileges(name, privileges)
 end
 
 local old_reload = minetest.builtin_auth_handler.reload
