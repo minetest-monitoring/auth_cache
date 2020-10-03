@@ -38,7 +38,11 @@ end
 
 local old_set_privileges = minetest.builtin_auth_handler.set_privileges
 function minetest.builtin_auth_handler.set_privileges(name, privileges)
-  cache[name].privileges = privileges
+  if cache[name] then
+    -- only set priv if the value is actually cached
+    -- prevents a weird crash if the auth-entry isn't cached yet or not anymore
+    cache[name].privileges = privileges
+  end
   return old_set_privileges(name, privileges)
 end
 
