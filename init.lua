@@ -64,3 +64,10 @@ function minetest.builtin_auth_handler.iterate(...)
   -- TODO: cache!
   return old_iterate(...) -- varargs shenanigans!
 end
+
+-- periodic cache invalidation
+local function invalidate_cache()
+  cache = {}
+  minetest.after(10, invalidate_cache)
+end
+invalidate_cache()
